@@ -29,6 +29,8 @@ int receivedClass = 1;
 
 
 void setup() {
+  // Pulling the display's density dynamically
+  pixelDensity(displayDensity());
  // colorMode(HSB);
   size(640, 480, P2D);
   noStroke();

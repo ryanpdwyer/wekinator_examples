@@ -120,6 +120,8 @@ class Rect
 
 void setup()
 {
+  // Pulling the display's density dynamically
+  pixelDensity(displayDensity());
   size(395, 200);
   
     //Initialize OSC communication

@@ -23,6 +23,8 @@ AudioOutput out;
 Oscil       wave;
 
 void setup() {
+  // Pulling the display's density dynamically
+  pixelDensity(displayDensity());
   size(400,400, P3D);
   colorMode(HSB);
   smooth();

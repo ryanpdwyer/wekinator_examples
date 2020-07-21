@@ -20,6 +20,8 @@ float xOffset = 0.0;
 float yOffset = 0.0;
 
 void setup() {
+  // Pulling the display's density dynamically
+  pixelDensity(displayDensity());
   f = createFont("Courier", 15);
   textFont(f);
 

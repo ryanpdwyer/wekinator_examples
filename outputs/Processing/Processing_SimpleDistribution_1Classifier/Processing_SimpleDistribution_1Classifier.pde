@@ -22,6 +22,8 @@ final int myWidth = 400;
 int frameNum = 0;
 
 void setup() {
+  // Pulling the display's density dynamically
+  pixelDensity(displayDensity());
   //typeTag = "ffffff";
   String t = "f";
   for (int i = 0; i < numClasses; i++) {

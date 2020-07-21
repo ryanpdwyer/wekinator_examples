@@ -27,6 +27,8 @@ NetAddress dest;
 
 
 void setup() {
+  // Pulling the display's density dynamically
+  pixelDensity(displayDensity());
   //Initialize OSC communication
   oscP5 = new OscP5(this,12000); //listen for OSC messages on port 12000 (Wekinator default)
   dest = new NetAddress("127.0.0.1",6448); //send messages back to Wekinator on port 6448, localhost (this machine) (default)

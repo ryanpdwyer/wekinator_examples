@@ -25,6 +25,8 @@ String[] pitches = {"C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"};
 
 
 void setup() {
+  // Pulling the display's density dynamically
+  pixelDensity(displayDensity());
   size(400,400, P3D);
   colorMode(HSB);
   smooth();

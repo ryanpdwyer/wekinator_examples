@@ -12,6 +12,8 @@ NetAddress dest;
 PFont f;
 
 void setup() {
+  // Pulling the display's density dynamically
+  pixelDensity(displayDensity());
   f = createFont("Courier", 16);
   textFont(f);
 
