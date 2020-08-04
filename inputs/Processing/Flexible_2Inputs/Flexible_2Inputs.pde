@@ -9,7 +9,7 @@ import netP5.*;
 import controlP5.*;
 
 ControlP5 cp5;
-boolean toggleValue = false;
+DropdownList d1;
 
 
 int patchSize = 110;
@@ -46,6 +46,12 @@ void setup() {
         .setPosition(500, 460)
         .setRange(1, 150)
         .setColorCaptionLabel(0);
+  d1 = cp5.addDropdownList("dropDownInt")
+            .setPosition(500, 480)
+            .addItem("Circle", 0)
+            .addItem("Square", 1)
+            .addItem("Triangle", 2);
+
   // customize(d1);
   
   bx = width/2.0;
@@ -62,24 +68,41 @@ void setup() {
 void drawShape(float x, float y, int size) {
   fill(117, 47, 138);
   stroke(117, 47, 138);
-  circle(x, y, size);
+  switch (dropDownInt) {
+    case 0:
+      circle(x, y, size);
+      break;
+    case 1:
+      square(x, y, size);
+      break;
+    case 2: 
+      triangle(x, y, x+size, y, x+size/2, y+size*sqrt(3)/2);
+      break;
+    default:
+      break;
+  }
 }
 
-// void controlEvent(ControlEvent theEvent) {
-//   // DropdownList is of type ControlGroup.
-//   // A controlEvent will be triggered from inside the ControlGroup class.
-//   // therefore you need to check the originator of the Event with
-//   // if (theEvent.isGroup())
-//   // to avoid an error message thrown by controlP5.
+void controlEvent(ControlEvent theEvent) {
+  // DropdownList is of type ControlGroup.
+  // A controlEvent will be triggered from inside the ControlGroup class.
+  // therefore you need to check the originator of the Event with
+  // if (theEvent.isGroup())
+  // to avoid an error message thrown by controlP5.
 
-//   if (theEvent.isGroup()) {
-//     // check if the Event was triggered from a ControlGroup
-//     dropDownInt = (int)theEvent.getGroup().getValue();
-//   } 
-//   else if (theEvent.isController()) {
-//     dropDownInt=(int)theEvent.getController().getValue();
-//   }
-// }
+  if (theEvent.isGroup()) {
+    // check if the Event was triggered from a ControlGroup
+    dropDownInt = (int)theEvent.getGroup().getValue();
+  } 
+  else if (theEvent.isController()) {
+    println("event from controller : "+theEvent.getController().getValue()+" from "+theEvent.getController());
+    if (theEvent.getController().getName() == "dropDownInt") {
+      dropDownInt = (int)theEvent.getController().getValue();
+    } else {
+      patchSize = (int)theEvent.getController().getValue();
+    }
+  }
+}
 // void customize(DropdownList ddl) {
 //   // a convenience function to customize a DropdownList
 //   ddl.setBackgroundColor(color(190));
@@ -95,11 +118,11 @@ void drawShape(float x, float y, int size) {
 // }
 
 
-// void drawEyePatch(float x, float y, int size) {
-//   fill(117, 47, 138);
-//   stroke(117, 47, 138);
-//   ellipse(x, y, size, size);
-// }
+void drawEyePatch(float x, float y, int size) {
+  fill(117, 47, 138);
+  stroke(117, 47, 138);
+  ellipse(x, y, size, size);
+}
 
 void draw() {
   background(255);
