@@ -24,6 +24,8 @@ int currentTextHue = 255;
 String currentMessage = "Waiting...";
 
 void setup() {
+  // Pulling the display's density dynamically
+  pixelDensity(displayDensity());
   colorMode(HSB);
   size(400,400, P3D);
   smooth();

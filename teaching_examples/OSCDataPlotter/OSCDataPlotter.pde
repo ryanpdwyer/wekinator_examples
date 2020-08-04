@@ -47,6 +47,8 @@ ControlP5 cp5;
 boolean isPaused = false;
 
 void setup()  {
+  // Pulling the display's density dynamically
+  pixelDensity(displayDensity());
   size(600, 400);
   
   //Initialize OSC communication

@@ -45,6 +45,8 @@ List<Example> trainingExamples = Collections.synchronizedList(new ArrayList<Exam
 List<Example> testExamples = Collections.synchronizedList(new ArrayList<Example>());
 
 void setup() {
+  // Pulling the display's density dynamically
+  pixelDensity(displayDensity());
   size(600, 400);
   background(0);
   

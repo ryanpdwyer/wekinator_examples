@@ -24,6 +24,8 @@ OscP5 oscP5;
 NetAddress dest;
 
 void setup() {
+  // Pulling the display's density dynamically
+  pixelDensity(displayDensity());
   size(640, 360, P2D);
   
     //Initialize OSC communication
