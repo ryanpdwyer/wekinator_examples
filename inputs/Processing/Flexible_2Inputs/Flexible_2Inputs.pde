@@ -73,7 +73,7 @@ void drawShape(float x, float y, int size) {
       circle(x, y, size);
       break;
     case 1:
-      square(x, y, size);
+      square(x, y, size/2);
       break;
     case 2: 
       triangle(x, y, x+size, y, x+size/2, y+size*sqrt(3)/2);
