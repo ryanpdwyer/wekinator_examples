@@ -56,7 +56,6 @@ void setup() {
         .setPosition(500, 460)
         .setRange(1, 150)
         .setColorCaptionLabel(0);
-  // customize(d1);
   
   bx = width/2.0;
   by = height/2.0;
