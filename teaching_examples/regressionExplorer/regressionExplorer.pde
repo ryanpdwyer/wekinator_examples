@@ -58,7 +58,7 @@ void setup() {
 
   //Set up OSC for communication to/from Wekinator
   oscP5 = new OscP5(this,processingReceivePort);
-  dest = new NetAddress("127.0.0.1",wekinatorReceivePort);
+  dest = new NetAddress("127.0.0.1", wekinatorReceivePort);
   wp = new WekinatorProxy(oscP5);
   
   createControls();
@@ -303,8 +303,8 @@ void getNextBoundaryTester() {
 }
 
 void buttonTrain() {
-      isWaitingSingle = false;
-    errMsg = "";
+   isWaitingSingle = false;
+   errMsg = "";
    wp.train(); 
 }
 
