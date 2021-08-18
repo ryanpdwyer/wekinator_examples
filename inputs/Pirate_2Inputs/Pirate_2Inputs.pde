@@ -23,6 +23,7 @@ float xOffset = 0.0;
 float yOffset = 0.0;
 
 void setup() {
+  frameRate(60);
   f = createFont("Courier", 15);
   textFont(f);
 
