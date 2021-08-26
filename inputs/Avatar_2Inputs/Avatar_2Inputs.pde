@@ -37,10 +37,10 @@ void setup() {
   f = createFont("Courier", 15);
   textFont(f);
 
-  String url = "https://api.adorable.io/avatars/200/" + userName + ".png";
-  String url2 = "https://api.adorable.io/avatars/200/" + userName + "@mountunion" + ".png";
-  String url3 = "https://api.adorable.io/avatars/200/" + userName + "@edu1234fys" + ".png";
-  String url4 = "https://api.adorable.io/avatars/200/umu2020fys" + userName + ".png";
+  String url = "https://api.hello-avatar.com/adorables/200/" + userName + ".png";
+  String url2 = "https://api.hello-avatar.com/adorables/200/" + userName + "@mountunion" + ".png";
+  String url3 = "https://api.hello-avatar.com/adorables/200/" + userName + "@edu1234fys" + ".png";
+  String url4 = "https://api.hello-avatar.com/adorables/200/umu2021fys" + userName + ".png";
   
   img = loadImage(url, "png");
   img2 = loadImage(url2, "png");
