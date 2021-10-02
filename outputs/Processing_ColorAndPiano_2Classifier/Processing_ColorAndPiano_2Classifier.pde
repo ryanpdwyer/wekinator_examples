@@ -20,7 +20,7 @@ int currentHue = 100;
 int currentTextHue = 255;
 String currentMessage = "Waiting...";
 
-int previousClass = 0;
+int[] previousClass = {1,1,1,1,1};
 
 void setup() {
   // Pulling the display's density dynamically
@@ -54,21 +54,23 @@ void draw() {
 void oscEvent(OscMessage theOscMessage) {
  //println("received message");
   if (theOscMessage.checkAddrPattern("/wek/outputs") == true) {
-      int f = (int)theOscMessage.get(0).floatValue();
-      println("received " + f);
-      showMessage(f);
-      if (f != previousClass) {
-        notes[f].rewind();
-        notes[f].play();
-        previousClass = f;
+      for (int i = 0; i < 5; i++) {
+        int f = (int)theOscMessage.get(i).floatValue();
+        println("received " + i + " " + f);
+        if (f != previousClass[i] && f == 2) {
+          notes[i].rewind();
+          notes[i].play();
+        }
+        previousClass[i] = f;
       }
+      currentMessage = String.format("%d %d %d %d %d", previousClass[0],
+              previousClass[1], previousClass[2], previousClass[3], previousClass[4]);
   }
-  
 }
 
 void showMessage(int i) {
-    currentHue = (int)generateColor(i);
-    currentTextHue = (int)generateColor((i+1));
+    //currentHue = (int)generateColor(i);
+    //currentTextHue = (int)generateColor((i+1));
     currentMessage = Integer.toString(i);
 
 }
@@ -84,7 +86,7 @@ void drawText() {
     text("Listening for OSC message /wek/outputs, port 12000", 10, 30);
     
     textFont(myBigFont);
-    text(currentMessage, 190, 180);
+    text(currentMessage, 100, 180);
 }
 
 

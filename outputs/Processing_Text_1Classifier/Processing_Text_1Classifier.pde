@@ -69,7 +69,7 @@ void drawText() {
     stroke(0);
     textFont(myFont);
     textAlign(LEFT, TOP); 
-    fill(0);
+    fill(250,0,0);
 
     text("Receives 1 classifier output message from wekinator", 10, 10);
     text("Listening for OSC message /wek/outputs, port 12000", 10, 30);

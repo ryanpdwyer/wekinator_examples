@@ -3,8 +3,8 @@
 //Listens on port 12000 for message /wek/outputs (defaults)
 
 // Edit the title and messages below to say what your classifier is and name each class
-String titleMessage = "Title:";
-String[] messages = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+String titleMessage = "Head Tilt:";
+String[] messages = {"Right", "Left", "No tilt", "4", "5", "6", "7", "8", "9"};
 
 //Necessary for OSC communication with Wekinator:
 import oscP5.*;
